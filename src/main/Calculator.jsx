@@ -15,7 +15,6 @@ const initialState={
 }
 export default class Calculator extends Component {
  
-
      state = {...initialState}
 
     constructor (props){
@@ -36,9 +35,10 @@ export default class Calculator extends Component {
         const currentOperation = this.state.operation
 
         const values = [...this.state.values]
-
+          let  ev =eval
         try{
-            values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+           values[0] = ev(`${values[0]} ${currentOperation} ${values[1]}`)
+           
             if (isNaN(values[0]) || !isFinite(values[0])) {
                 this.clearMemory()
             return
